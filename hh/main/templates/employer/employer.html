@@ -1,0 +1,12 @@
+{% extends 'extends/base.html' %}
+
+{% block content %}
+    <div class="employer">
+        <h2>Resume List</h2>
+        <ul>
+            {% for resume in resumes %}
+                <li><a href="{% url 'resume_detail' pk=resume.pk %}">{{ resume.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

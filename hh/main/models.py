@@ -33,8 +33,10 @@ class Vacancy(models.Model):
     email = models.EmailField()
     slug = models.CharField(max_length=255, unique=True, null=True, blank=True)
 
-    def save(
-            self, force_insert=False, force_update=False, using=None, update_fields=None
-    ):
-        self.slug = slugify(f"{self.name} - {self.company}")
-        super().save(force_insert, force_update, using, update_fields)
+    def save(self, *args, **kwargs):
+        if not self.user_id:
+            self.user = User.objects.get(username='default_username')
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.name

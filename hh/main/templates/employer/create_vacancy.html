@@ -1,0 +1,16 @@
+{% extends 'extends/base.html' %}
+
+{% block content %}
+    <div class="create_resume">
+        <h1>Create page</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="create_btn" type="submit">Create</button>
+        </form>
+        <a href="{% url 'employer' %}">Back</a>
+    </div>
+{% endblock %}
+
+
+

@@ -1,0 +1,13 @@
+{% extends 'extends/base.html' %}
+
+{% block content %}
+    <div class="create">
+        <h2>Update Vacancy</h2>
+        <form method="post" action="{% url 'vacancy_update' pk=vacancy.pk %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="update_btn" type="submit">Update</button>
+        </form>
+        <a href="{% url 'employer' %}">Back</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'extends/side.html' %}
+
+
+{% block content %}
+    <div class="detail">
+        <h2>{{ vacancy.name }}</h2>
+        <p>Company: {{ vacancy.company }}</p>
+        <p>Salary: {{ vacancy.salary }}</p>
+        <p>Skills: {{ vacancy.skills }}</p>
+        <p>Duties: {{ vacancy.duty }}</p>
+        <a href="javascript:void(0);" onclick="goBack()">Back</a>
+        <script>
+            function goBack() {
+                window.history.back();
+            }
+        </script>
+    </div>
+{% endblock %}

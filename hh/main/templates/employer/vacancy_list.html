@@ -1,0 +1,17 @@
+{% extends 'extends/base.html' %}
+
+{% block content %}
+    <div class="vacation">
+        <h2>Your Vacancies</h2>
+        {% for vacancy in vacancies %}
+            <div class="vacancies">
+                <p><a href="{% url 'vacancy_detail' pk=vacancy.pk %}">{{ vacancy.name }} - {{ vacancy.company }}</a></p>
+                <div class="vacancies_2">
+                    <p><a href="{% url 'vacancy_update' pk=vacancy.pk %}">Update</a></p>
+                    <p><a href="{% url 'vacancy_delete' pk=vacancy.pk %}">Delete</a></p>
+                </div>
+            </div>
+        {% endfor %}
+        <a href="{% url 'employer' %}">Back</a>
+    </div>
+{% endblock %}

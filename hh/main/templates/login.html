@@ -1,4 +1,4 @@
-{% extends 'layout.html' %}
+{% extends 'extends/layout.html' %}
 
 {% block content %}
     <div class="register">
@@ -8,7 +8,7 @@
         {% for f in form %}
             <p class="reg">{{ f.label }} {{ f }}</p>
         {% endfor %}
-        <input class="sign" type="submit" value="Log In">
+        <button class="sign" type="submit">Log In</button>
     </form>
     <a href="{% url 'main' %}">Back</a>
 </div>

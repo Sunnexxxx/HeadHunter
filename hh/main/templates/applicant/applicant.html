@@ -1,0 +1,12 @@
+{% extends 'extends/side.html' %}
+
+{% block content %}
+    <div class="applicaut">
+        <h2>Vacancy List</h2>
+        <ul>
+            {% for vacancy in vacancies %}
+                <li><a href="{% url 'vacancy_app' pk=vacancy.pk %}">{{ vacancy.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

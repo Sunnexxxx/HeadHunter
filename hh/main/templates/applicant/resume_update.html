@@ -1,0 +1,11 @@
+{% extends 'extends/side.html' %}
+
+{% block content %}
+    <h2>Edit Resume</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save Changes</button>
+    </form>
+    <a href="{% url 'resume_detail' pk=resume.pk %}">Cancel</a>
+{% endblock %}

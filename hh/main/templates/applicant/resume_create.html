@@ -1,0 +1,13 @@
+{% extends 'extends/side.html' %}
+
+{% block content %}
+    <div class="create">
+        <h2>Create Resume</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="create_btn" type="submit">Create Resume</button>
+        </form>
+        <a href="{% url 'applicant' %}">Back</a>
+    </div>
+{% endblock %}
