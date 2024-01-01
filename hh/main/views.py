@@ -48,8 +48,10 @@ class Logout(LogoutView):
     next_page = reverse_lazy('main')
 
 
-class Employer(TemplateView):
+class Employer(ListView):
+    model = Resume
     template_name = 'employer/employer.html'
+    context_object_name = 'resumes'
 
 
 class VacancyCreate(CreateView):
@@ -103,10 +105,14 @@ class VacancyDetailApp(DetailView):
     context_object_name = 'vacancy'
 
 
-class ResumeList(ListView):
+class ResumeDetailEm(View):
     model = Resume
-    template_name = 'employer/employer.html'
-    context_object_name = 'resumes'
+    template_name = 'employer/resume_detail_em.html'
+    context_object_name = 'resume'
+
+    def get(self, request, pk):
+        resume = get_object_or_404(Resume, pk=pk)
+        return render(request, self.template_name, {'resume': resume})
 
 
 class ResumeCreate(View):
@@ -116,7 +122,7 @@ class ResumeCreate(View):
         existing_resume = Resume.objects.filter(user=request.user).first()
 
         if existing_resume:
-            return redirect('resume_update', pk=existing_resume.pk)
+            return redirect('resume_detail', pk=existing_resume.pk)
 
         form = ResumeForm()
         return render(request, self.template_name, {'form': form})
@@ -162,6 +168,8 @@ class ResumeUpdate(View):
             return redirect('resume_detail', pk=pk)
 
         return render(request, self.template_name, {'form': form, 'resume': resume})
+
+
 
 
 

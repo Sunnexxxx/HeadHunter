@@ -1,11 +1,13 @@
 {% extends 'extends/side.html' %}
 
 {% block content %}
+    <div class="create">
     <h2>Edit Resume</h2>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Save Changes</button>
+        <button class="update_btn" type="submit">Update</button>
     </form>
     <a href="{% url 'resume_detail' pk=resume.pk %}">Cancel</a>
+    </div>
 {% endblock %}

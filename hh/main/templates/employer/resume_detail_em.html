@@ -1,0 +1,16 @@
+{% extends 'extends/base.html' %}
+
+{% block content %}
+    <div class="r_detail">
+        <h2>Resume Detail</h2>
+        <p><strong>Title:</strong> {{ resume.title }}</p>
+        <p><strong>Name:</strong> {{ resume.name }}</p>
+        <p><strong>Surname:</strong> {{ resume.surname }}</p>
+        <p><strong>Middlename:</strong>{{ resume.patronymic }}</p>
+        <p><strong>Email:</strong>{{ resume.email }}</p>
+        <p><strong>Skills:</strong>{{ resume.skills }}</p>
+        <p><strong>Experience:</strong>{{ resume.experience }}</p>
+        <p><strong>Education:</strong>{{ resume.education }}</p>
+        <a href="{% url 'employer' %}">Back</a>
+    </div>
+{% endblock %}

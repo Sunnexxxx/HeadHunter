@@ -15,9 +15,9 @@
     <ul>
         <li><a href="{% url 'applicant' %}">Main</a></li>
         {% if resume %}
-            <a href="{% url 'resume_detail' pk=resume.pk %}">My Resume</a>
+            <li><a href="{% if resume and resume.pk %}{% url 'resume_detail' pk=resume.pk %}{% endif %}">Resume</a></li>
         {% else %}
-            <a href="{% url 'resume_create' %}">Create Resume</a>
+            <li><a href="{% url 'resume_create' %}">Resume</a></li>
         {% endif %}
         <li>
             <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Log Out</a>
